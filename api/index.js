@@ -17,8 +17,19 @@ app.get('/health', (req, res) => {
 })
 
 app.get('/recipes', (req, res) => {
-  return res.status(200).json({ recipes })
+  return res.status(200).json(recipes)
 })
+
+app.get('/recipes/:id', (req, res) => {
+  const { id } = req.params;
+
+  const recipe = recipes.find(recipe => recipe.id === id)
+
+  if (!recipe) return res.status(404).json({message: 'not found'})
+
+  return res.status(200).json({ recipe })
+})
+
 
 app.post('/recipes', (req, res) => {
   const { id, name, author } = req.body;

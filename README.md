@@ -140,3 +140,13 @@ async function getData() {
 ### Trataivas de erros
 
 ### Cache
+
+findAll
+
+findOne/findOneById
+
+update
+
+delete
+
+insert
